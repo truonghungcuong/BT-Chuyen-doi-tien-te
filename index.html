@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+        <th align="center">Amount</th>
+        <th align="center">From Currency</th>
+        <th align="center">To Currency</th>
+        </tr>
+        <tr>
+            <td>
+                <input id="sotien" type="text" style="width: 150px">
+                <div id="result"></div>
+            </td>
+            <td align="center" style="width: 200px">
+            <select id="quocgia1" style="width: 120px" >
+                <option value="" selected>chọn quốc gia</option>
+                <option value="1">Việt Nam</option>
+                <option value="2">Mỹ</option>
+             </select>
+        </td>
+            <td align="center" >
+                <select id="quocgia2">
+                    <option value="" selected>chọn quốc gia</option>
+                    <option value="1">Việt Nam</option>
+                    <option value="2">Mỹ</option>
+                </select>
+            </td>
+            <td>
+                <button onclick="doitien()" style="margin-left: 50px" >Convert</button>
+            </td>
+        </tr>
+    </table>
+
+<script>
+    function doitien(){
+        let select1 = document.getElementById("quocgia1").value;
+        let select2 = document.getElementById("quocgia2").value;
+        let sotiengoc = parseInt(document.getElementById("sotien").value);
+        if (select1 == select2){
+            alert('Nhập lại quốc gia')
+        }
+        if (select1 =="1" && select2 =="2"){
+            document.getElementById('result').innerHTML =  "Result : "+ sotiengoc/23000+"$";
+        }
+        if (select1 =="2" && select2 =="1"){
+            document.getElementById('result').innerHTML =  "Result : "+ sotiengoc*23000+"VND";
+        }
+    }
+</script>
+</body>
+</html>
